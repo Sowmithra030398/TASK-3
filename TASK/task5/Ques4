@@ -1,0 +1,45 @@
+import re
+
+class EmailMobileTelephoneAsciiCheck:
+    def __init__(self, email, mobile, telephone, ascii):
+        self.email = email
+        self.mobile = mobile
+        self.telephone = telephone
+        self.ascii = ascii
+
+    def validate_email(self):  # e.g., "rajadevi0512@gmail.com"
+        pattern = r"^[a-z0-9_]+@gmail\.com$"
+        if re.match(pattern, self.email):
+            print("Correct Pattern")
+        else:
+            print("Incorrect Pattern")
+    
+    def validate_mobile(self):  # starts with 880 followed by "1" and 9 digits
+        pattern = r"^8801[0-9]{9}$"
+        if re.match(pattern, self.mobile):
+            print("Correct Pattern")
+        else:
+            print("Incorrect Pattern")
+    
+    def validate_telephone(self):  # format: 1-212-456-7890
+        pattern = r"^1-[0-9]{3}-[0-9]{3}-[0-9]{4}$"
+        if re.match(pattern, self.telephone):
+            print("Correct Pattern")
+        else:
+            print("Incorrect Pattern")  
+
+
+# Create an instance and validate
+validate = EmailMobileTelephoneAsciiCheck(
+    email="rajadevi0512@gmail.com",
+    mobile="880112345678",
+    telephone="1-212-456-7890",
+    
+)
+
+validate.validate_email()
+validate.validate_mobile()
+validate.validate_telephone()
+
+
+
